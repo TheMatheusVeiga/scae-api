@@ -1,0 +1,165 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SCAE API - Sistema de Comunicação para Área da Enfermagem.",
+    "description": "Documentação do projetos SCAE - Matheus Balieiro, Rodolfo Fabiano, José de Arimateia e Matheus Uchôas"
+  },
+  "host": "api.apps.theveiga.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/esp32/register-device": {
+      "post": {
+        "tags": ["ESP32"],
+        "description": "Register Devices Endpoint",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "deviceName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/api/esp32/activate-device": {
+      "post": {
+        "tags": ["ESP32"],
+        "description": "Activate Devices Endpoint",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "deviceId": {
+                  "example": 0
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/api/esp32/signin": {
+      "post": {
+        "tags": ["ESP32"],
+        "description": "Get user match on database",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                  "email": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Sent"
+          }
+        }
+      }
+    },
+    "/api/esp32/list-devices/": {
+      "get": {
+        "tags": ["ESP32"],
+        "description": "List Devices Endpoint",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/esp32/change-logs/": {
+      "get": {
+        "tags": ["ESP32"],
+        "description": "Get Devices Change Logs Endpoint",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/esp32/change-logs/{id}": {
+      "get": {
+        "tags": ["ESP32"],
+        "description": "Get Device Change Log By id Endpoint",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/esp32/sync/{id}": {
+      "get": {
+        "tags": ["ESP32"],
+        "description": "Sync Device Status Endpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/esp32/charts/": {
+      "get": {
+        "tags": ["ESP32"],
+        "description": "Get Charts Data",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
